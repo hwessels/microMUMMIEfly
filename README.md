@@ -30,7 +30,7 @@ Once you have installed PARpipe and assigned all accessory files within parclip_
 
 ```ruby
 cd workdir
-bpipe run -r PathToParpipe/parclip_pipe.sh prefix.fastq
+bpipe run -r /PathToParpipe/parclip_pipe.sh prefix.fastq
 ```
 
 
