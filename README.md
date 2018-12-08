@@ -13,4 +13,4 @@ PARalyzer uses Bowtie to align PAR-CLIP reads to the genome and then constructs 
 
 ##### Install MUMMIE
 
-Precompiled linux binaries and custom script are available here and may may work on your system. if they don't, you'll need to compile the source, please find the instructions [here](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/).
+Precompiled linux binaries and custom script are available here and may may work on your system. if they don't, you'll need to compile the [source code](https://ohlerlab.mdc-berlin.de/files/duke/MUMMIE/mummie.tgz), please find the instructions [here](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/).
