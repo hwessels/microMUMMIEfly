@@ -13,4 +13,10 @@ PARalyzer uses Bowtie to align PAR-CLIP reads to the genome and then constructs 
 
 ##### Install MUMMIE
 
-Precompiled linux binaries and custom script are available here and may may work on your system. if they don't, you'll need to compile the [source code](https://ohlerlab.mdc-berlin.de/files/duke/MUMMIE/mummie.tgz), please find the instructions [here](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/).
+Precompiled linux binaries and custom script are available here and may may work on your system. if they don't, you'll need to compile the [source code](https://ohlerlab.mdc-berlin.de/files/duke/MUMMIE/mummie.tgz). Please find the instructions [here](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/).
+
+Please make sure you have:
+1) You have following packages: gsl, gsl-devel, mpi, mpi-devel, gcc, gcc-c++.
+2) You have custom perl scripts, packages and linux binaries in your path. 
+3) Your PERLLIB directory list to include all the perl scripts and packages we provide. You may have to change permissions if there is any problem (chmod a+x *.pl *.pm)
+4) You should have additional perl modules in the path. (File::Basename, File::Spec,File::chdir,TempFilename)
