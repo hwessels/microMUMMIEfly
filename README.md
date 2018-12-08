@@ -17,6 +17,15 @@ Precompiled linux binaries and custom script are available here and may may work
 
 Here, we only provide the option to run microMUMMIE without conservation. 
 
+Add the microMUMMIE folders to your PATH
+```ruby
+export PATH=${PATH}:PathTo/microMUMMIEfly/withouttgsn/bin
+export PATH=${PATH}:PathTo/microMUMMIEfly/withouttgsn/scripts
+export PERL5LIB="PathTo/microMUMMIEfly/withouttgsn/scripts:$PERL5LIB
+```
+
+Moreover, microMUMMIE requires Bedtools. Please install [Bedtools](https://bedtools.readthedocs.io/en/latest/) and add it to your PATH.
+
 ##### Set Environment Variables
 
 As noted in the compilation instructions on the download page, you must add several MUMMIE directories to your path.
@@ -35,8 +44,14 @@ bpipe run -r parclip_pipe.sh prefix.fastq
 
 Example PARpipe output data files that serve as microMUMMIE input can be downloaded from [here]().
 
+### 2.  Run microMUMMIE
+
+The microMUMMIE.pl script execute all required steps for microRNA binding site prediction.
 
 
 
+
+
+Note also that the script generates temporary files that will be overwritten each time the script is executed (i.e., do not try to run two copies of the script simultaneously in the same directory).  Thus, we will first describe how to run the microMUMMIE.pl script, and then how to modify it.
 
 
