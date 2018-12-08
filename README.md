@@ -48,7 +48,7 @@ Example PARpipe output data files that serve as microMUMMIE input can be downloa
 
 The microMUMMIE.pl wrapper script calls all required steps for microRNA binding site prediction. To run microMUMMIE, cd into your run folder. Your run folder must contain the required PARpipe output files *prefix.clusters.csv*, *prefix.groups.csv* and *prefix.distribution*. 
 
-perl microMUMMIE.pl <mature-miRNAs.txt> <genome.2bit> <paralyzer-output-dir> <library-name> <out.gff> <posterior-decoding 0/1> <UTRs.txt> <output-dir>
+perl microMUMMIE.pl <mature-miRNAs.txt> <genome.2bit> <Paralyzer output dir> <library name> <out.gff> <posterior decoding 0/1> <UTRs.txt> <output dir>
 
 ```ruby
 microMUMMIE='PathTo/microMUMMIEfly/withouttgsn/microMUMMIE.pl'
