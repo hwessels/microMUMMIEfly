@@ -60,7 +60,7 @@ OUT=out.gff
 MODE=0 # (0 = viterbi; 1 = posterior decoding)
 FEATURE='PathTo/microMUMMIEfly/withouttgsn/accessory/dm6_ENSv81_3utr.txt'
 
-perl $MUMMIE $MATURE_MIR_TXT $TWOBIT $WD $PREFIX $OUT $MODE $FEATURE $WD
+perl $microMUMMIE $MATURE_MIR_TXT $TWOBIT $WD $PREFIX $OUT $MODE $FEATURE $WD
 
 ```
 
