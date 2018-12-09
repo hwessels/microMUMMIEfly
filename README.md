@@ -139,6 +139,11 @@ head -n 1 out.gff-genomic.gff
 
 When running microMUMMIE on a new data set, it is not feasible to assess the actual sensitivity, specificity, or signal-to-noise ratio (SNR, which generally correlates with specificity) without extensive simulation experiments.  Thus, to provide a rough indication of the sensitivity and specificity trends, estimates of these values are inferred by interpolating from the following table, which was generated via large-scale simulation results:
 
+| PEV | sensitivity | SNR |
+| :---:        |     :---:      |      :---:    |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+
 PEV	sensitivity	SNR
 0.5	0.12	15.7
 0.25	0.17	12.04
