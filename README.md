@@ -40,8 +40,8 @@ my $mummie_path = "PathTo/microMUMMIEfly/withouttgsn";
  Moreover, microMUMMIE requires Bedtools. Please install [Bedtools](https://bedtools.readthedocs.io/en/latest/) and add it to your PATH.
 
 
-
-
+<br>
+<br>
 
 ### 2.  Run PARpipe
 
@@ -57,7 +57,8 @@ bpipe run -r parclip_pipe.sh prefix.fastq
 Example PARpipe output data files that serve as microMUMMIE input can be downloaded from [here]().
 
 
-
+<br>
+<br>
 
 
 ### 3.  Run microMUMMIE
@@ -86,7 +87,7 @@ perl $microMUMMIE $MATURE_MIR_TXT $TWOBIT $WD $PREFIX $OUT $MODE $FEATURE $WD
 
 ```
 
-
+<br>
 
 The microMUMMIE.pl input are the following:
 
@@ -103,13 +104,19 @@ The microMUMMIE.pl input are the following:
 
 *Note also that the script generates temporary files that will be overwritten each time the script is executed. Thus, you may not run two copies of the script simultaneously in the same directory.*  
 
+<br>
+
 
 ####  Run microMUMMIE with targetscan conservation
 
  In our original [microMUMMIE manuscript](https://doi.org/10.1038/nmeth.2489) we used targetscan microRNA binding site conservation scores to improve microRNA binding site predictions in [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/). We tried to implement targetscan microRNA binding site branchlength conservation scores in a similar way for fly data using a 27way multiple sequence alignment. However, we did not find that the branchlength score benefited the microRNA binding site predictions. If you wish to implement targetscan branchlength score usage microMUMMIEfly similar to [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/), you can find the required subsetted multiple sequence alignment files [here]().
 
+<br>
+<br>
 
 ### 4.  Interpreting the Output
+
+<br>
 
 Output Format
 
@@ -124,21 +131,24 @@ head -n 1 out.gff-genomic.gff
 
 ```
  
- 
+ <br>
  
  This line can be interpreted as follows.  On chromosome 2L (chr2L), occupying 1-based coordinate interval 18701559-18701565 on the negative strand is a seed match to miRNA dme-miR-305-5p.  The corresponding DNA sequence for this RNA target site is GTACAAA. The posterior probability of this site under the microMUMMIE model is 0.7829, the estimated sensitivity is 62%, and the estimated signal-to-noise ratio (SNR) is 2.24 (these latter two statistics are interpolated from previously performed shuffling experiments). Finally, the type of seed match is 7mer-A1, which means that the match is 7nt long, but the 3'-most residue is an A even if the miRNA seed residue at this position is not a U.
 
+<br>
+<br>
 
 ##### Scores and Postprocessing
 
  MicroMUMMIE may perform posterior decoding, which means that multiple sites may be predicted for each PAR-CLIP cluster, and the scores assigned to individual sites are posterior probabilities. The posterior probability of a site is the probability of the HMM going through the foreground states for a site, irrespective of what other states are visited outside this putative site.  One implication of this fact is that predicted sites that partially overlap will be forced to share probability, since different states are mutually exclusive at a given site in the HMM.  However, for different types of seed matches (e.g., 6mer, 7mer, 8mer), the probabilities of each of these types of matches will be appropriately summed for any given miRNA, so that, for example, a 6mer match inside a 7mer match will not subtract from the 7mer score.
 
-
+<br>
+<br>
 
 ##### Sensitivity, Specificity, and Signal-to-Noise Ratio
 
  MicroMUMMIE can be parameterized to run at different sensitivities or specificities.  The single parameter to microMUMMIE, called the peak emission variance (PEV), controls the tradeoff between sensitivity and specificity.  Higher PEV produces higher specificity, so that the predictions you obtain should be more confident.  Lowever PEV produces higher sensitivity, so that you will receive more predictions, though not all predictions will be of the highest confidence.  The individual output files named predictions-varNNN.gff contain predictions at different PEV values; the single default output file is simply a copy of one of these files selected to have medium sensitivity and medium specificity, but you can opt for greater sensitivity by choosing a lower PEV or greater specificity by choosing a higher PEV.
-
+<br>
 When running microMUMMIE on a new data set, it is not feasible to assess the actual sensitivity, specificity, or signal-to-noise ratio (SNR, which generally correlates with specificity) without extensive simulation experiments.  Thus, to provide a rough indication of the sensitivity and specificity trends, estimates of these values are inferred by interpolating from the following table, which was generated via large-scale simulation results:
 
 | PEV   | sensitivity | SNR     |
