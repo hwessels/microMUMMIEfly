@@ -24,6 +24,12 @@ export PATH=${PATH}:PathTo/microMUMMIEfly/withouttgsn/scripts
 export PERL5LIB="PathTo/microMUMMIEfly/withouttgsn/scripts:$PERL5LIB
 ```
 
+Set the microMUMMIE path at the top of the main wrapper script to help all relative paths to be found.
+```ruby
+# add the full microMUMMIE path to help all relative paths to be found
+my $mummie_path = "PathTo/microMUMMIEfly/withouttgsn";
+```
+
 Moreover, microMUMMIE requires Bedtools. Please install [Bedtools](https://bedtools.readthedocs.io/en/latest/) and add it to your PATH.
 
 ##### Set Environment Variables
