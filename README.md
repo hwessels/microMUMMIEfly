@@ -24,7 +24,7 @@ export PATH=${PATH}:PathTo/microMUMMIEfly/withouttgsn/scripts
 export PERL5LIB="PathTo/microMUMMIEfly/withouttgsn/scripts:$PERL5LIB
 ```
 
-Set the microMUMMIE path at the top of the main wrapper script to help all relative paths to be found.
+Set the microMUMMIE path at the top of the main wrapper script *microMUMMIE.pl* to help all relative paths to be found.
 ```ruby
 # add the full microMUMMIE path to help all relative paths to be found
 my $mummie_path = "PathTo/microMUMMIEfly/withouttgsn";
@@ -54,9 +54,12 @@ Example PARpipe output data files that serve as microMUMMIE input can be downloa
 
 The microMUMMIE.pl wrapper script calls all required steps for microRNA binding site prediction. To run microMUMMIE, cd into your run folder. Your run folder must contain the required PARpipe output files *prefix.clusters.csv*, *prefix.groups.csv* and *prefix.distribution*. 
 
-perl microMUMMIE.pl  mature-miRNAs.txt   genome.2bit   ParalyzerOutputDir   SamplePrefix  output.gff  posterior-decoding 0/1 UTRs.txt  OutputDir
+**perl microMUMMIE.pl  mature-miRNAs.txt   genome.2bit   ParalyzerOutputDir   SamplePrefix  output.gff  posterior-decoding 0/1 coordinatefile  OutputDir**
 
 ```ruby
+
+cd ParalyzerOutputDir
+
 microMUMMIE='PathTo/microMUMMIEfly/withouttgsn/microMUMMIE.pl'
 MATURE_MIR_TXT='PathTo/microMUMMIEfly/withouttgsn/testdata/top30.miRNA.txt'
 TWOBIT='PathTo/microMUMMIEfly/withouttgsn/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit'
@@ -69,6 +72,20 @@ FEATURE='PathTo/microMUMMIEfly/withouttgsn/accessory/dm6_ENSv81_3utr.txt'
 perl $microMUMMIE $MATURE_MIR_TXT $TWOBIT $WD $PREFIX $OUT $MODE $FEATURE $WD
 
 ```
+
+The microMUMMIE.pl input are the following:
+
+- mature-miRNAs.txt : *This is a 2-column text file giving the name of the miRNA in the first column and the 20-24nt mature miRNA {A, C, G, U} sequence in the second column.*
+- genome.2bit : *This is the complete genome in 2bit format.*
+- ParalyzerOutputDir : *Path to output directory from Paralyzer or PARpipe containing XX.distribution/clusters/groups.csv files.*
+- SamplePrefix : *The name of library -- i.e., the initials XX in the file name XX.distribution/clusters/groups.csv*
+- output.gff : *This is the file that the output of microMUMMIE.pl will be written into.*
+- 0 : *This is an advanced option for Viterbi decoding or posterior decoding. (1=posterior decoding, 0=Viterbi decoding; posterior decoding will generally produce more predictions than Viterbi).*
+- coordinatefile : *Tab-separated file containing coordinates of genomic sequences to search -- i.e.  3'UTR,  CDS or 5'UTR. Columns should be in this order: Chromosome, Start, End, GeneID, Strand, Transcript ID.*
+- OutputDir: *Path of the directory where you want to save all the output files from the program so that you can run script in parellel. *
+
+
+
 
 
 
