@@ -115,6 +115,11 @@ The output will be three files according to the out.gff name, which consists of 
 
 Here is a sample line from microMUMMIE's out.gff- output:
  
-*2L	Binding	site	18701559	18701565	0.782911824	-	.	gene=CG10376_0;transcriptid=FBtr0081128;utr_start=18700604;utr_end=18701626;prediction_start=62;prediction_end=68;seq=GTACAAA;type=7mer-A1;miRNA=dme-miR-305-5p;sens=0.62;SNR=2.24;*
+ ```ruby
+head -n 1 out.gff-genomic.gff
+2L	Binding	site	18701559	18701565	0.782911824	-	.	gene=CG10376_0;transcriptid=FBtr0081128;utr_start=18700604;utr_end=18701626;prediction_start=62;prediction_end=68;seq=GTACAAA;type=7mer-A1;miRNA=dme-miR-305-5p;sens=0.62;SNR=2.24;
+```
+ 
+
  
 This line can be interpreted as follows.  On chromosome 9 (chr9), occupying 1-based coordinate interval 74298636-74298643 on the negative strand is a seed match to miRNA let-7d.  The corresponding DNA sequence for this RNA target site is CTACCTCA.  The posterior probability of this site under the microMUMMIE model is 0.665, the estimated sensitivity is 62%, and the estimated signal-to-noise ratio (SNR) is 2.24 (these latter two statistics are interpolated from previously performed shuffling experiments).  Finally, the type of seed match is 8mer-A1, which means that the match is 8 nt long, but the 3'-most residue is an A even if the miRNA seed residue at this position is not a U.
