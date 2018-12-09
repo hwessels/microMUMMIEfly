@@ -1,4 +1,10 @@
 # microMUMMIEfly
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
 
  MicroMUMMIE is a specific model, implemented within the [MUMMIE](https://ohlerlab.mdc-berlin.de/files/duke/MUMMIE/) framework, for predicting microRNA binding sites using PAR-CLIP data.  Thus, while MUMMIE can be used for many different bioinformatic modeling tasks, microMUMMIE is a specific model for a specific task. Here you find the guidelines for the installation and usage of microMUMMIE specific to *Drosophila melanogaste* data. For human, please defer to this [page](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/). 
 
@@ -129,7 +135,7 @@ head -n 1 out.gff-genomic.gff
 
 ##### Scores and Postprocessing
 
- In its default operation, microMUMMIE performs posterior decoding, which means that multiple sites may be predicted for each PAR-CLIP cluster, and the scores assigned to individual sites are posterior probabilities.  The posterior probability of a site is the probability of the HMM going through the foreground states for a site, irrespective of what other states are visited outside this putative site.  One implication of this fact is that predicted sites that partially overlap will be forced to share probability, since different states are mutually exclusive at a given site in the HMM.  However, for different types of seed matches (e.g., 6mer, 7mer, 8mer), the probabilities of each of these types of matches will be appropriately summed for any given miRNA, so that, for example, a 6mer match inside a 7mer match will not subtract from the 7mer score.
+ MicroMUMMIE may perform posterior decoding, which means that multiple sites may be predicted for each PAR-CLIP cluster, and the scores assigned to individual sites are posterior probabilities. The posterior probability of a site is the probability of the HMM going through the foreground states for a site, irrespective of what other states are visited outside this putative site.  One implication of this fact is that predicted sites that partially overlap will be forced to share probability, since different states are mutually exclusive at a given site in the HMM.  However, for different types of seed matches (e.g., 6mer, 7mer, 8mer), the probabilities of each of these types of matches will be appropriately summed for any given miRNA, so that, for example, a 6mer match inside a 7mer match will not subtract from the 7mer score.
 
 
 
