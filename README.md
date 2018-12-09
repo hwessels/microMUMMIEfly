@@ -64,7 +64,7 @@ Example PARpipe output data files that serve as microMUMMIE input can be downloa
 The microMUMMIE.pl wrapper script calls all required steps for microRNA binding site prediction. To run microMUMMIE, cd into your run folder. Your run folder must contain the required PARpipe output files *prefix.clusters.csv*, *prefix.groups.csv* and *prefix.distribution*. 
 
 
-**perl microMUMMIE.pl  mature-miRNAs.txt   genome.2bit   ParalyzerOutputDir   SamplePrefix  output.gff  posterior-decoding 0/1 coordinatefile  OutputDir**
+**perl microMUMMIE.pl  mature-miRNAs.txt   genome.2bit   ParalyzerOutputDir   SamplePrefix  out.gff  posterior-decoding 0/1 coordinatefile  OutputDir**
 
 
 ```ruby
@@ -92,16 +92,29 @@ The microMUMMIE.pl input are the following:
 - genome.2bit : *This is the complete genome in 2bit format.*
 - ParalyzerOutputDir : *Path to output directory from Paralyzer or PARpipe containing XX.distribution/clusters/groups.csv files.*
 - SamplePrefix : *The name of library -- i.e., the initials XX in the file name XX.distribution/clusters/groups.csv*
-- output.gff : *This is the file that the output of microMUMMIE.pl will be written into.*
+- out.gff : *This is the file that the output of microMUMMIE.pl will be written into.*
 - 0 : *This is an advanced option for Viterbi decoding or posterior decoding. (1=posterior decoding, 0=Viterbi decoding; posterior decoding will generally produce more predictions than Viterbi).*
 - coordinatefile : *Tab-separated file containing coordinates of genomic sequences to search -- i.e.  3'UTR,  CDS or 5'UTR. Columns should be in this order: Chromosome, Start, End, GeneID, Strand, Transcript ID.*
-- OutputDir: *Path of the directory where you want to save all the output files from the program so that you can run script in parellel. *
+- OutputDir: *Path of the directory where you want to save all the output files from the program so that you can run script in parellel.*
 
 
 
+*Note also that the script generates temporary files that will be overwritten each time the script is executed. Thus, you may not run two copies of the script simultaneously in the same directory.*  
 
 
+####  Run microMUMMIE with targetscan conservation
 
-Note also that the script generates temporary files that will be overwritten each time the script is executed (i.e., do not try to run two copies of the script simultaneously in the same directory).  Thus, we will first describe how to run the microMUMMIE.pl script, and then how to modify it.
+In our original [microMUMMIE manuscript](https://doi.org/10.1038/nmeth.2489) we used targetscan microRNA binding site conservation scores to improve microRNA binding site predictions in [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/). We tried to implement targetscan microRNA binding site branchlength conservation scores in a similar way for fly data using a 27way multiple sequence alignment. However, we did not find that the branchlength score benefited the microRNA binding site predictions. If you wish to implement targetscan branchlength score usage microMUMMIEfly similar to [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/), you can find the required subsetted multiple sequence alignment files [here]().
 
 
+### 4.  Interpreting the Output
+
+Output Format
+
+The output will be three files according to the out.gff name, which consists of 1-based coordinates of predicted miRNA targets and their probability scores. The main out.gff file contain miRNA binding site predictions relative to the feature start (i.e. 3'UTR start). The main out.gff-genomic.gff file contains the genomic mapping information. And out.gff-map.gff filters for predictions that overlap the input prefix.groups.csv file. The output is mapped to transcript isoforms. Thus, overlapping windows (i.e. 3'UTR isoforms) may generate redundant predictions. Note that the script actually generates several sets of predictions made at different sensitivities and specificities; all out.gff files contains all of these prediction sets, parameterized indicated sensitivity and specificity values. Individual prediction sets at other parameterizations are available in the files named predictions-varNNN.gff. Higher values of NNN correspond to higher specificity/SNR/accuracy, and lower sensitivity. 
+
+Here is a sample line from microMUMMIE's out.gff- output:
+ 
+*2L	Binding	site	18701559	18701565	0.782911824	-	.	gene=CG10376_0;transcriptid=FBtr0081128;utr_start=18700604;utr_end=18701626;prediction_start=62;prediction_end=68;seq=GTACAAA;type=7mer-A1;miRNA=dme-miR-305-5p;sens=0.62;SNR=2.24;*
+ 
+This line can be interpreted as follows.  On chromosome 9 (chr9), occupying 1-based coordinate interval 74298636-74298643 on the negative strand is a seed match to miRNA let-7d.  The corresponding DNA sequence for this RNA target site is CTACCTCA.  The posterior probability of this site under the microMUMMIE model is 0.665, the estimated sensitivity is 62%, and the estimated signal-to-noise ratio (SNR) is 2.24 (these latter two statistics are interpolated from previously performed shuffling experiments).  Finally, the type of seed match is 8mer-A1, which means that the match is 8 nt long, but the 3'-most residue is an A even if the miRNA seed residue at this position is not a U.
