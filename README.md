@@ -138,6 +138,11 @@ head -n 1 out.gff-genomic.gff
 <br>
 <br>
 
+
+
+
+
+
 ##### Scores and Postprocessing
 
  MicroMUMMIE may perform posterior decoding, which means that multiple sites may be predicted for each PAR-CLIP cluster, and the scores assigned to individual sites are posterior probabilities. The posterior probability of a site is the probability of the HMM going through the foreground states for a site, irrespective of what other states are visited outside this putative site.  One implication of this fact is that predicted sites that partially overlap will be forced to share probability, since different states are mutually exclusive at a given site in the HMM.  However, for different types of seed matches (e.g., 6mer, 7mer, 8mer), the probabilities of each of these types of matches will be appropriately summed for any given miRNA, so that, for example, a 6mer match inside a 7mer match will not subtract from the 7mer score.
