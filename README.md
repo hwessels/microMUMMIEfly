@@ -31,6 +31,21 @@ export PATH=${PATH}:PathTo/microMUMMIEfly/withouttgsn/scripts
 export PERL5LIB="PathTo/microMUMMIEfly/withouttgsn/scripts:$PERL5LIB
 ```
 
+After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders
+```ruby
+
+ls -ltr 
+
+drwxr-sr-x 2 xxx user    6 Dec 14 20:56 files
+drwxr-sr-x 2 xxx user   11 Dec 14 03:10 bin
+drwxr-sr-x 3 xxx user   27 Dec 14 03:33 scripts
+drwxr-sr-x 2 xxx user    6 Dec 14 03:55 accessory
+drwxr-sr-x 3 xxx user   47 Dec 14 04:49 testdata
+-rwxr--r-- 1 xxx user 6860 Dec 14 04:53 microMUMMIE.pl
+
+
+```
+
 Set the microMUMMIE path at the top of the main wrapper script *microMUMMIE.pl* to help all relative paths to be found.
 ```ruby
 # add the full microMUMMIE path to help all relative paths to be found
