@@ -93,7 +93,7 @@ microMUMMIE='PathTo/microMUMMIEfly/withouttgsn/microMUMMIE.pl'
 MATURE_MIR_TXT='PathTo/microMUMMIEfly/withouttgsn/testdata/top30.miRNA.txt'
 TWOBIT='PathTo/microMUMMIEfly/withouttgsn/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit'
 WD=$(pwd)
-PREFIX=AGO1_chr2L
+PREFIX=AGO1_chr4
 OUT=out.gff
 MODE=0 # (0 = viterbi; 1 = posterior decoding)
 FEATURE='PathTo/microMUMMIEfly/withouttgsn/accessory/dm6_ENSv81_3utr.txt'
