@@ -12,8 +12,8 @@
 
 ##### Install PARalyzer
 
- MicroMUMMIE microRNA binding site predictions depend on [PARalyzer](https://ohlerlab.mdc-berlin.de/software/PARalyzer_85/) output files. Please begin by installing PARalyzer implemented in [PARpipe](https://github.com/ohlerlab/PARpipe). To run PARpipe succesfully on fly data you will need the bowtie-index, GTF, 2bit file, repeat masker files, and transcript isoform tracking file deposited [here]().
- PARalyzer uses Bowtie to align PAR-CLIP reads to the genome and then constructs a smooth signal curve that can be used for peak-calling to find (roughly) where an RNA-binding protein (such as Argonaute) binds. However, rather than using a peak-caller, microMUMMIE instead uses a hidden Markov model (HMM) to find the most probable miRNA seed match near the PARalyzer peak.  This allows microMUMMIE to weigh multiple forms of evidence (e.g., T-to-C conversion rates, evolutionary conservation, RNA sequence) in making the most informed prediction. 
+ MicroMUMMIE microRNA binding site predictions depend on [PARalyzer](https://ohlerlab.mdc-berlin.de/software/PARalyzer_85/) output files. Please begin by installing PARalyzer implemented in [PARpipe](https://github.com/ohlerlab/PARpipe). To run PARpipe succesfully on fly data you will need the bowtie-index, GTF, 2bit file, repeat masker files, and transcript isoform tracking file deposited [coming soon]().
+ PARalyzer uses Bowtie to align PAR-CLIP reads to the genome and then constructs a smooth signal curve that can be used for peak-calling to find (roughly) where an RNA-binding protein (such as Argonaute) binds. However, rather than using a peak-caller, microMUMMIE instead uses a hidden Markov model (HMM) to find the most probable miRNA seed match near the PARalyzer peak. This allows microMUMMIE to weigh multiple forms of evidence (e.g., T-to-C conversion rates, evolutionary conservation, RNA sequence) in making the most informed prediction. 
 
 <br>
 
@@ -60,7 +60,7 @@ my $mummie_path = "PathTo/microMUMMIEfly/withouttgsn";
 
 ### 2.  Run PARpipe
 
- Before you can predict microRNA binding sites, you need to process your AGO1 PAR-CLIP fastq reads using PARpipe. Please see the [PARalyzer instructions](https://ohlerlab.mdc-berlin.de/files/duke/PARalyzer/README.txt) for recommended parameters. Parameters used for Drosophila can be found in our recent [manuscript](https://doi.org/10.1101/395335). PARpipe produces three critical input files for microMUMMIE (prefix.clusters.csv, prefix.groups.csv and prefix.distribution). This distribution file provides smoothed T-to-C conversion profiles for each AGO binding site used by microMUMMIE. For more information about PARalyzer can be found [here](https://doi.org/10.1186/gb-2011-12-8-r79). Accessory files to run PARpipe on fly PAR-CLIP data can be downloaded from [here].
+ Before you can predict microRNA binding sites, you need to process your AGO1 PAR-CLIP fastq reads using PARpipe. Please see the [PARalyzer instructions](https://ohlerlab.mdc-berlin.de/files/duke/PARalyzer/README.txt) for recommended parameters. Parameters used for Drosophila can be found in our recent [manuscript](https://doi.org/10.1101/395335). PARpipe produces three critical input files for microMUMMIE (prefix.clusters.csv, prefix.groups.csv and prefix.distribution). This distribution file provides smoothed T-to-C conversion profiles for each AGO binding site used by microMUMMIE. For more information about PARalyzer can be found [here](https://doi.org/10.1186/gb-2011-12-8-r79). Accessory files to run PARpipe on fly PAR-CLIP data can be downloaded from [coming soon](). 
 
  Once you have installed PARpipe and assigned all accessory files within parclip_pipe.sh, add parclip_pipe.sh to your workdir, cd into your data folder and execute the PARpipe:
 
@@ -69,7 +69,7 @@ cd workdir
 bpipe run -r parclip_pipe.sh prefix.fastq
 ```
 
-Example PARpipe output data files that serve as microMUMMIE input can be downloaded from [here]().
+Example PARpipe output data files that serve as microMUMMIE input can be found in the testdata subfolder or downloaded from [coming soon](). The required PARpipe output files (*prefix.clusters.csv, prefix.groups.csv and prefix.distribution*) of AGO1 PAR-CLIP data in Drosophila S2 cell can be found on [GEO](https://www.ncbi.nlm.nih.gov/geo/) under accession number [GSE109980]().
 
 
 <br>
@@ -79,7 +79,7 @@ Example PARpipe output data files that serve as microMUMMIE input can be downloa
 ### 3.  Run microMUMMIE
 
 
- The microMUMMIE.pl wrapper script calls all required steps for microRNA binding site prediction. To run microMUMMIE, cd into your run folder. Your run folder must contain the required PARpipe output files *prefix.clusters.csv*, *prefix.groups.csv* and *prefix.distribution*. 
+ The microMUMMIE.pl wrapper script calls all required steps for microRNA binding site prediction. To run microMUMMIE, cd into your run folder (= *PARpipe output folder*). Your run folder must contain the required PARpipe output files *prefix.clusters.csv*, *prefix.groups.csv* and *prefix.distribution*. 
 
 
 **perl microMUMMIE.pl  mature-miRNAs.txt   genome.2bit   ParalyzerOutputDir   SamplePrefix  out.gff  posterior-decoding 0/1 coordinatefile  OutputDir**
@@ -104,7 +104,7 @@ perl $microMUMMIE $MATURE_MIR_TXT $TWOBIT $WD $PREFIX $OUT $MODE $FEATURE $WD
 
 <br>
 
-The microMUMMIE.pl input are the following:
+The microMUMMIE.pl input files are the following:
 
 - mature-miRNAs.txt : *This is a 2-column text file giving the name of the miRNA in the first column and the 20-24nt mature miRNA {A, C, G, U} sequence in the second column.*
 - genome.2bit : *This is the complete genome in 2bit format.*
