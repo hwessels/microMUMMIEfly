@@ -36,7 +36,7 @@ Add the microMUMMIE folders to your PATH
 ```ruby
 export PATH=${PATH}:PathTo/microMUMMIEfly/bin
 export PATH=${PATH}:PathTo/microMUMMIEfly/scripts
-export PERL5LIB="PathTo/microMUMMIEfly/scripts:$PERL5LIB
+export PERL5LIB=PathTo/microMUMMIEfly/scripts:$PERL5LIB
 ```
 
 After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders
