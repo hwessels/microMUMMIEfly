@@ -19,7 +19,15 @@
 
 ##### Install MUMMIE
 
- Precompiled linux binaries and custom script are available here and may may work on your system. if they don't, you'll need to compile the [source code](https://ohlerlab.mdc-berlin.de/files/duke/MUMMIE/mummie.tgz). Please find the instructions [here](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/).
+ Precompiled linux binaries and custom script are available here and may may work on your system. 
+ 
+ ```ruby
+ cd pathToSoftware/
+ git clone https://github.com/hwessels/microMUMMIEfly.git
+```
+
+ 
+ if they don't, you'll need to compile the [source code](https://ohlerlab.mdc-berlin.de/files/duke/MUMMIE/mummie.tgz). Please find the instructions [here](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/).
 
 Here, we only provide the option to run microMUMMIE without conservation. 
 
