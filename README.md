@@ -19,7 +19,7 @@
 
 ##### Install MUMMIE
 
- Precompiled linux binaries and custom script are available here and may may work on your system. 
+ Precompiled linux binaries and custom script are available here and may work on your unix system. 
  
  ```ruby
  cd pathToSoftware/
@@ -38,6 +38,8 @@ export PATH=${PATH}:PathTo/microMUMMIEfly/bin
 export PATH=${PATH}:PathTo/microMUMMIEfly/scripts
 export PERL5LIB=PathTo/microMUMMIEfly/scripts:$PERL5LIB
 ```
+
+
 
 After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders
 ```ruby
@@ -61,6 +63,16 @@ Set the microMUMMIE path at the top of the main wrapper script *microMUMMIE.pl* 
 # add the full microMUMMIE path to help all relative paths to be found
 my $mummie_path = "PathTo/microMUMMIEfly";
 ```
+
+
+A 2bit dm6 genome genome file can be downloaded [here](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit) and needs to be placed inside PathTo/microMUMMIEfly/accessory/   
+
+```ruby
+cd Downloads
+mv Drosophila_melanogaster.BDGP6.dna.toplevel.2bit PathTo/microMUMMIEfly/accessory/ 
+```
+
+
 
  Moreover, microMUMMIE requires Bedtools. Please install [Bedtools](https://bedtools.readthedocs.io/en/latest/) and add it to your PATH.
 
