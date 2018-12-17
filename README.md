@@ -12,7 +12,21 @@
 
 ##### Install PARalyzer
 
- MicroMUMMIE microRNA binding site predictions depend on [PARalyzer](https://ohlerlab.mdc-berlin.de/software/PARalyzer_85/) output files. Please begin by installing PARalyzer implemented in [PARpipe](https://github.com/ohlerlab/PARpipe). To run PARpipe succesfully on fly data you will need the bowtie-index, GTF, 2bit file, repeat masker files, and transcript isoform tracking file deposited [coming soon]().
+ MicroMUMMIE microRNA binding site predictions depend on [PARalyzer](https://ohlerlab.mdc-berlin.de/software/PARalyzer_85/) output files. Please begin by installing PARalyzer implemented in [PARpipe](https://github.com/ohlerlab/PARpipe). To run PARpipe succesfully on fly data you will need the following files: 
+ [bowtie-index](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/bwt.tar.gz)
+ [GTF](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/Drosophila_melanogaster.BDGP6.ensemblv81.mod.gtf.gz)
+ [2bit file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit)
+ [repeat masker file1](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/dm6_rmsk.bed.gz)
+ [repeat masker file2](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/dm6_rmsk_info)
+ [transcript isoform tracking file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/isoforms.fpkm_tracking_rsem_S2cells_ensemblv81)
+ 
+ 
+ All files except the bowtie index can remain zipped. To unzip the bowtie index
+  ```ruby
+ cd Downloads
+tar xvzf bwt.tar.gz /PathTo/PARpipe/files/
+```
+ 
  PARalyzer uses Bowtie to align PAR-CLIP reads to the genome and then constructs a smooth signal curve that can be used for peak-calling to find (roughly) where an RNA-binding protein (such as Argonaute) binds. However, rather than using a peak-caller, microMUMMIE instead uses a hidden Markov model (HMM) to find the most probable miRNA seed match near the PARalyzer peak. This allows microMUMMIE to weigh multiple forms of evidence (e.g., T-to-C conversion rates, evolutionary conservation, RNA sequence) in making the most informed prediction. 
 
 <br>
