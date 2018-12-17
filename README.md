@@ -42,6 +42,8 @@ export PERL5LIB="PathTo/microMUMMIEfly/withouttgsn/scripts:$PERL5LIB
 After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders
 ```ruby
 
+cd microMUMMIEfly
+
 ls -ltr 
 
 drwxr-sr-x 2 xxx user    6 Dec 14 03:10 files
@@ -95,7 +97,7 @@ Example PARpipe output data files that serve as microMUMMIE input can be found i
 
 ```ruby
 
-cd ParalyzerOutputDir
+cd PathTo/microMUMMIEfly/testdata/
 
 microMUMMIE='PathTo/microMUMMIEfly/withouttgsn/microMUMMIE.pl'
 MATURE_MIR_TXT='PathTo/microMUMMIEfly/withouttgsn/testdata/top30.miRNA.txt'
