@@ -34,9 +34,9 @@ Here, we only provide the option to run microMUMMIE without conservation.
 
 Add the microMUMMIE folders to your PATH
 ```ruby
-export PATH=${PATH}:PathTo/microMUMMIEfly/withouttgsn/bin
-export PATH=${PATH}:PathTo/microMUMMIEfly/withouttgsn/scripts
-export PERL5LIB="PathTo/microMUMMIEfly/withouttgsn/scripts:$PERL5LIB
+export PATH=${PATH}:PathTo/microMUMMIEfly/bin
+export PATH=${PATH}:PathTo/microMUMMIEfly/scripts
+export PERL5LIB="PathTo/microMUMMIEfly/scripts:$PERL5LIB
 ```
 
 After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders
@@ -59,7 +59,7 @@ drwxr-sr-x 3 xxx user   47 Dec 14 03:49 testdata
 Set the microMUMMIE path at the top of the main wrapper script *microMUMMIE.pl* to help all relative paths to be found.
 ```ruby
 # add the full microMUMMIE path to help all relative paths to be found
-my $mummie_path = "PathTo/microMUMMIEfly/withouttgsn";
+my $mummie_path = "PathTo/microMUMMIEfly";
 ```
 
  Moreover, microMUMMIE requires Bedtools. Please install [Bedtools](https://bedtools.readthedocs.io/en/latest/) and add it to your PATH.
@@ -99,14 +99,14 @@ Example PARpipe output data files that serve as microMUMMIE input can be found i
 
 cd PathTo/microMUMMIEfly/testdata/
 
-microMUMMIE='PathTo/microMUMMIEfly/withouttgsn/microMUMMIE.pl'
-MATURE_MIR_TXT='PathTo/microMUMMIEfly/withouttgsn/testdata/top30.miRNA.txt'
-TWOBIT='PathTo/microMUMMIEfly/withouttgsn/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit'
+microMUMMIE='PathTo/microMUMMIEfly/microMUMMIE.pl'
+MATURE_MIR_TXT='PathTo/microMUMMIEfly/testdata/top30.miRNA.txt'
+TWOBIT='PathTo/microMUMMIEfly/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit'
 WD=$(pwd)
 PREFIX=AGO1_chr4
 OUT=out.gff
 MODE=0 # (0 = viterbi; 1 = posterior decoding)
-FEATURE='PathTo/microMUMMIEfly/withouttgsn/accessory/dm6_ENSv81_3utr.txt'
+FEATURE='PathTo/microMUMMIEfly/accessory/dm6_ENSv81_3utr.txt'
 
 perl $microMUMMIE $MATURE_MIR_TXT $TWOBIT $WD $PREFIX $OUT $MODE $FEATURE $WD
 
