@@ -65,7 +65,7 @@ my $mummie_path = "PathTo/microMUMMIEfly";
 ```
 
 
-A 2bit dm6 genome genome file can be downloaded [here](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit) and needs to be placed inside PathTo/microMUMMIEfly/accessory/   
+A 2bit dm6 genome genome file can be downloaded [here](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit) and needs to be placed inside PathTo/microMUMMIEfly/accessory/   
 
 ```ruby
 cd Downloads
