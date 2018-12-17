@@ -33,7 +33,7 @@ tar xvzf bwt.tar.gz /PathTo/PARpipe/files/
 
 ##### Install MUMMIE
 
- Precompiled linux binaries and custom script are available here and may work on your unix system. 
+ Precompiled linux binaries and custom script are available in microMUMMIEfly/bin and microMUMMIEfly/scripts and may work on your unix system. 
  
  ```ruby
  cd pathToSoftware/
@@ -55,7 +55,7 @@ export PERL5LIB=PathTo/microMUMMIEfly/scripts:$PERL5LIB
 
 
 
-After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders. Make sure you set permission to make all files readable.
+After cloning the microMUMMIEfly repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders. Make sure you set permission to make all files readable.
 ```ruby
 
 cd microMUMMIEfly
