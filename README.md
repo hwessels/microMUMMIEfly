@@ -41,10 +41,12 @@ export PERL5LIB=PathTo/microMUMMIEfly/scripts:$PERL5LIB
 
 
 
-After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders
+After cloning this repository, the path containing microMUMMIE.pl should contain bin, scripts, files, accessory and testdata folders. Make sure you set permission to make all files readable.
 ```ruby
 
 cd microMUMMIEfly
+
+chmod 755 -R *
 
 ls -ltr 
 
