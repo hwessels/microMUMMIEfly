@@ -21,7 +21,7 @@
  [transcript isoform tracking file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/isoforms.fpkm_tracking_rsem_S2cells_ensemblv81).
  
  
- All files except the bowtie index can remain zipped. To unzip the bowtie index
+ All files except the bowtie index can remain zipped. To unzip the bowtie index:
   ```ruby
  cd Downloads
 tar xvzf bwt.tar.gz /PathTo/PARpipe/files/
@@ -74,14 +74,14 @@ drwxr-sr-x 3 xxx user   47 Dec 14 03:49 testdata
 
 ```
 
-Set the microMUMMIE path at the top of the main wrapper script *microMUMMIE.pl* to help all relative paths to be found.
+Set the microMUMMIE path at the top of the main perl wrapper script *microMUMMIE.pl* to help all relative paths to be found.
 ```ruby
 # add the full microMUMMIE path to help all relative paths to be found
 my $mummie_path = "PathTo/microMUMMIEfly";
 ```
 
 
-A 2bit dm6 genome genome file can be downloaded [here](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit) and needs to be placed inside PathTo/microMUMMIEfly/accessory/   
+The [2bit dm6 genome genome](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit) needs to be placed inside PathTo/microMUMMIEfly/accessory/   
 
 ```ruby
 cd Downloads
@@ -107,7 +107,7 @@ cd workdir
 bpipe run -r parclip_pipe.sh prefix.fastq
 ```
 
-Example PARpipe output data files that serve as microMUMMIE input can be found in the testdata subfolder or downloaded from [coming soon](). The required PARpipe output files (*prefix.clusters.csv, prefix.groups.csv and prefix.distribution*) of AGO1 PAR-CLIP data in Drosophila S2 cell can be found on [GEO](https://www.ncbi.nlm.nih.gov/geo/) under accession number [GSE109980]().
+Example PARpipe output data files that serve as microMUMMIE input can be found in the testdata subfolder. The required PARpipe output files (*prefix.clusters.csv, prefix.groups.csv and prefix.distribution*) of a full AGO1 PAR-CLIP data set in Drosophila S2 cell can be found on [GEO](https://www.ncbi.nlm.nih.gov/geo/) under accession number GSE109980.
 
 
 <br>
@@ -162,7 +162,7 @@ The microMUMMIE.pl input files are the following:
 
 ####  Run microMUMMIE with targetscan conservation
 
- In our original [microMUMMIE manuscript](https://doi.org/10.1038/nmeth.2489) we used targetscan microRNA binding site conservation scores to improve microRNA binding site predictions in [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/). We tried to implement targetscan microRNA binding site branchlength conservation scores in a similar way for fly data using a 27way multiple sequence alignment. However, we did not find that the branchlength score benefited the microRNA binding site predictions. If you wish to implement targetscan branchlength score usage microMUMMIEfly similar to [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/), you can find the required subsetted multiple sequence alignment files [here]().
+ In our original [microMUMMIE manuscript](https://doi.org/10.1038/nmeth.2489) we used targetscan microRNA binding site conservation scores to improve microRNA binding site predictions in [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/). We tried to implement targetscan microRNA binding site branchlength conservation scores in a similar way for fly data using a 27way multiple sequence alignment. However, we did not find that the branchlength score helped the microRNA binding site predictions. If you wish to implement targetscan branchlength score usage microMUMMIEfly similar to [human](https://ohlerlab.mdc-berlin.de/software/microMUMMIE_99/), you can find the required 3'UTR multiple sequence alignment files [here](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/accessory/BDGP6_ENSv81_3utr.maf).
 
 <br>
 <br>
