@@ -13,12 +13,12 @@
 ##### Install PARalyzer
 
  MicroMUMMIE microRNA binding site predictions depend on [PARalyzer](https://ohlerlab.mdc-berlin.de/software/PARalyzer_85/) output files. Please begin by installing PARalyzer implemented in [PARpipe](https://github.com/ohlerlab/PARpipe). To run PARpipe succesfully on fly data you will need the following files: 
- [bowtie-index](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/bwt.tar.gz)
- [GTF](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/Drosophila_melanogaster.BDGP6.ensemblv81.mod.gtf.gz)
- [2bit file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit)
- [repeat masker file1](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/dm6_rmsk.bed.gz)
- [repeat masker file2](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/dm6_rmsk_info)
- [transcript isoform tracking file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/isoforms.fpkm_tracking_rsem_S2cells_ensemblv81)
+ [bowtie-index](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/bwt.tar.gz), 
+ [GTF](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/Drosophila_melanogaster.BDGP6.ensemblv81.mod.gtf.gz), 
+ [2bit file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/github/microMUMMIEfly/accessory/Drosophila_melanogaster.BDGP6.dna.toplevel.2bit), 
+ [repeat masker file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/dm6_rmsk.bed.gz), 
+ [repeat masker info file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/dm6_rmsk_info), and
+ [transcript isoform tracking file](https://ohlerlab.mdc-berlin.de/files/microMUMMIEfly/PARpipefly_accessory/isoforms.fpkm_tracking_rsem_S2cells_ensemblv81).
  
  
  All files except the bowtie index can remain zipped. To unzip the bowtie index
